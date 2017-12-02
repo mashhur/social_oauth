@@ -1,9 +1,10 @@
 
 # Project Information
-React, JWT authorization project
+React, Facebook, Google, Twitter, Linkedin oauth project
 
 ## Description
-Signup, Login, Logout (users/logout API) features implemented. Is saves token in cookie and uses for future requests.
+Facebook, Google, Twitter, Linkedin login sample with Passport (Express, Nodejs) and React. Edit
+Add topics
 
 ### How to install?
 
@@ -18,9 +19,6 @@ npm install
 $npm start
 ```
 To build app.js from frontend 
-$npm run bundle
+$npm run build
 
-// After login chat page test
-method: POST
-URL: http://localhost:3000/chat
-Header: add Authorization and add JWT + token
+URL: http://localhost:3000/
