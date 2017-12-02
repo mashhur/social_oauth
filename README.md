@@ -18,7 +18,9 @@ npm install
 ```
 $npm start
 ```
-To build app.js from frontend 
+To build app.js from frontend
+```
 $npm run build
+```
 
 URL: http://localhost:3000/
