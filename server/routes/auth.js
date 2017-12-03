@@ -1,12 +1,10 @@
-const express = require('express');
+const express   = require('express');
 const validator = require('validator');
-var   bcrypt = require('bcrypt');
-var   passport = require('passport');
+const passport  = require('passport');
+const env       = process.env.NODE_ENV || 'development';
+const config    = require(__dirname + '/../config/config.json')[env];
 
-var   env       = process.env.NODE_ENV || 'development';
-var   config    = require(__dirname + '/../config/config.json')[env];
-
-const router = new express.Router();
+var router    = new express.Router();
 
 router.get('/facebook', passport.authenticate('facebook'));
 

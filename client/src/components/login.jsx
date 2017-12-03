@@ -1,6 +1,4 @@
 import React from 'react';
-import { xmlHttpGet } from '../util/api.jsx';
-import Auth from '../util/auth.js';
 import './style.css';
 import './social_buttons.css';
 
@@ -11,49 +9,9 @@ class Login extends React.Component {
 
         // set the initial component state
         this.state = { };
-
-        this.facebookLogin  = this.facebookLogin.bind(this);
-        this.googleLogin    = this.googleLogin.bind(this);
-        this.twitterLogin   = this.twitterLogin.bind(this);
-        this.linkedinLogin  = this.linkedinLogin.bind(this);
-    }
-
-    saveToken(token) {
-        Auth.authenticateUser(token);
-    }
-
-    facebookLogin() {
-        // if token is exist, verify
-        console.log("Facebook login...");
-
-        // call fb login API
-        xmlHttpGet(`/auth/facebook`, function(res) {
-            if(res.status == 200) {
-                console.log(res);
-                this.saveToken(res.token);
-            } else {
-                alert(res.data);
-            }
-        });
-    }
-
-    googleLogin() {
-        // call google login API
-        // save token in local store for future API access
-    }
-
-    twitterLogin() {
-        // call twitter login API
-        // save token in local store for future API access
-    }
-
-    linkedinLogin() {
-        // call linkedin login API
-        // save token in local store for future API access
     }
 
     render() {
-        let self = this;
         return (
             <div className="container">
                 <div className="card card-container">
@@ -68,21 +26,20 @@ class Login extends React.Component {
                         </div>
                         <button className="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="Sign in">Sign in</button>
                     </form>
-                    <a href="#" className="forgot-password">Forgot the password?</a>
+                    <a href="#" className="forgot-password">Forgot the password?</a><br/>
 
                     <a href="/auth/facebook" className="social-button" id="facebook-connect">
                         <span>Connect with Facebook</span>
-                    </a>
-                    <button className="social-button" id="facebook-connect" onClick={ self.facebookLogin }>
-                        <span>Connect with Facebook</span>
-                    </button>
-                    <button className="social-button" id="google-connect" onClick={ self.googleLogin }>
+                    </a><br/>
+                    <a href="/auth/google" className="social-button" id="google-connect">
                         <span>Connect with Google</span>
-                    </button>
-                    <button className="social-button" id="twitter-connect" onClick={ self.twitterLogin }>
-                        <span>Connect with Twitter</span></button>
-                    <button className="social-button" id="linkedin-connect" onClick={ self.linkedinLogin }>
-                        <span>Connect with LinkedIn</span></button>
+                    </a><br/>
+                    <a href="/auth/twitter" className="social-button" id="twitter-connect">
+                        <span>Connect with Twitter</span>
+                    </a><br/>
+                    <a href="/auth/linkedin" className="social-button" id="linkedin-connect">
+                        <span>Connect with LinkedIn</span>
+                    </a>
                 </div>
             </div>
         )

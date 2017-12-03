@@ -2,7 +2,4 @@ node_modules
 .DS_Store
 *.swp
 .idea
-authorization/client/dist/
-authorization/node_modules/
-part-2-json-web-token/client/dist/
-part-2-json-web-token/node_modules/
+server/config/auth.js
